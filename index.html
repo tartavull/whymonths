@@ -13,6 +13,10 @@
       background: #000;
       font-family: sans-serif;
       color: #ccc;
+      user-select: none; /* Disable text selection */
+      -webkit-user-select: none; /* Safari */
+      -moz-user-select: none; /* Firefox */
+      -ms-user-select: none; /* IE/Edge */
     }
     canvas {
       display: block;
@@ -80,6 +84,26 @@
     input:checked + .slider:before {
       transform: translateX(26px);
     }
+    /* Add this to your existing styles */
+    .github-link {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 100; /* Increased z-index */
+      opacity: 0.6;
+      transition: opacity 0.3s;
+      cursor: pointer; /* Add pointer cursor */
+    }
+    
+    .github-link:hover {
+      opacity: 1;
+    }
+    
+    .github-link img {
+      width: 32px;
+      height: 32px;
+      filter: invert(1);
+    }
   </style>
 </head>
 <body>
@@ -92,6 +116,12 @@
     <span id="toggleLabel">stupidity</span>
   </div>
   <canvas id="calendarCanvas"></canvas>
+  
+  <!-- Updated GitHub link -->
+  <a href="https://github.com/tartavull/whymonths/tree/main" target="_blank" rel="noopener noreferrer" class="github-link" onclick="window.open(this.href, '_blank'); return false;">
+    <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub">
+  </a>
+  
   <script src="calendar.js"></script>
 </body>
 </html>
